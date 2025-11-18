@@ -1,65 +1,88 @@
+"use client";
 import Image from "next/image";
+import { ParallaxScroll, ParallaxLayer } from "@/components/ui/parallax-scroll";
+import Silk from "@/components/Silk";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      <ParallaxScroll
+        classNames={{
+          wrapper: "min-h-lvh",
+          layers:
+            "flex min-h-lvh flex-col items-center justify-center px-4 py-[100px] md:py-[200px]",
+          fade: "z-10",
+        }}
+        layers={[
+          { layer: "1", yPercent: 70 },
+          { layer: "2", yPercent: 50 },
+          { layer: "3", yPercent: 30 },
+        ]}
+      >
+        <Link href="https://hackclub.com" target="_blank">
+          <Image
+            src="/static/images/flag-orpheus-top.svg"
+            alt="Orpheus Flag"
+            height={200}
+            width={200}
+            className="absolute top-0 left-5 z-10 opacity-60 hover:opacity-100 transition-opacity"
+          />
+        </Link>
+        <ParallaxLayer
+          layer="1"
+          className="absolute inset-0 flex items-center pointer-events-none justify-center bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-size-[70px_70px] bg-position-[center_center]"
+        >
+          <Silk
+            speed={5}
+            scale={1}
+            color="#00d696"
+            noiseIntensity={1.5}
+            rotation={0}
+            className="opacity-20"
+          />
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          layer="2"
+          className="absolute -mt-[20vh] inset-0 font-medium flex flex-col gap-4 md:gap-8 items-center justify-center"
+        >
+          <Image
+            src="/static/images/logo.svg"
+            alt="Mountains Background"
+            height={170 * 0.7}
+            width={496 * 0.7}
+            className="scale-75 md:scale-100 object-contain"
+          />
+          <div className="max-w-3xl text-xl mx-4 md:text-3xl text-center inline-block">
+            Create anything that involves in your camera, gets a{" "}
+            <b className="py-1 bg-main/30 border border-main/50 px-2 rounded-lg">
+              professional camera
+            </b>{" "}
+            for real.
+          </div>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          layer="4"
+          className="absolute bottom-0 left-0 right-0 w-full"
+        >
+          <Image
+            src="/static/images/field.png"
+            alt="Field Background"
+            height={512}
+            width={1963}
+            className="w-full object-contain md:object-cover"
+          />
+        </ParallaxLayer>
+      </ParallaxScroll>
+
+      <section className="min-h-screen flex items-center justify-center bg-dark-background text-dark-foreground px-4">
+        <div className="max-w-4xl text-center space-y-8">
+          <h2 className="text-4xl md:text-6xl font-bold">Soon!</h2>
+          <p className="text-lg md:text-xl text-muted-foreground">still WIP</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
