@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ParallaxScroll, ParallaxLayer } from "@/components/ui/parallax-scroll";
 import Silk from "@/components/Silk";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -26,7 +27,7 @@ export default function Home() {
             alt="Orpheus Flag"
             height={200}
             width={200}
-            className="absolute top-0 left-5 z-10 opacity-60 hover:opacity-100 transition-opacity"
+            className="absolute top-0 left-0 right-0 w-full mx-auto md:w-auto md:mx-0 max-h-[8rem] md:left-14 z-10 opacity-60 hover:opacity-100 transition-opacity"
           />
         </Link>
         <ParallaxLayer
@@ -34,12 +35,12 @@ export default function Home() {
           className="absolute inset-0 flex items-center pointer-events-none justify-center bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-size-[70px_70px] bg-position-[center_center]"
         >
           <Silk
-            speed={5}
+            speed={10}
             scale={1}
             color="#00d696"
             noiseIntensity={1.5}
             rotation={0}
-            className="opacity-20"
+            className="opacity-15"
           />
         </ParallaxLayer>
 
@@ -56,11 +57,19 @@ export default function Home() {
           />
           <div className="max-w-3xl text-xl mx-4 md:text-3xl text-center inline-block">
             Create anything that involves in your camera, gets a{" "}
-            <b className="py-1 bg-main/30 border border-main/50 px-2 rounded-lg">
+            <b className="py-1 bg-main/30 border backdrop-blur-[1.5px] border-main/50 px-2 rounded-lg">
               professional camera
             </b>{" "}
             for real.
           </div>
+          <Button asChild>
+            <Link
+              href="https://go.hexaa.sh/hackography-rsvp?utm_source=hackography-page&utm_medium=hero"
+              className="font-semibold"
+            >
+              RSVP Now!
+            </Link>
+          </Button>
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -77,10 +86,10 @@ export default function Home() {
         </ParallaxLayer>
       </ParallaxScroll>
 
-      <section className="min-h-screen flex items-center justify-center bg-dark-background text-dark-foreground px-4">
+      <section className="flex items-center justify-center bg-dark-background text-dark-foreground py-24 -mt-2 px-4">
         <div className="max-w-4xl text-center space-y-8">
-          <h2 className="text-4xl md:text-6xl font-bold">Soon!</h2>
-          <p className="text-lg md:text-xl text-muted-foreground">still WIP</p>
+          <h2 className="text-4xl md:text-6xl font-bold">How it works?</h2>
+          <p>WIP</p>
         </div>
       </section>
     </main>

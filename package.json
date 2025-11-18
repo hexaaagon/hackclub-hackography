@@ -10,6 +10,7 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
     "@react-three/fiber": "^9.4.0",
     "@studio-freight/lenis": "^1.0.42",
     "class-variance-authority": "^0.7.1",
