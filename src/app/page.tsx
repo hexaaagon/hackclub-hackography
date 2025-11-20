@@ -4,6 +4,8 @@ import { ParallaxScroll, ParallaxLayer } from "@/components/ui/parallax-scroll";
 import Silk from "@/components/Silk";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { StackedCards } from "@/components/how-it-works";
+import { Dithering } from "@paper-design/shaders-react";
 
 export default function Home() {
   return (
@@ -86,11 +88,82 @@ export default function Home() {
         </ParallaxLayer>
       </ParallaxScroll>
 
-      <section className="flex items-center justify-center bg-dark-background text-dark-foreground py-24 -mt-2 px-4">
-        <div className="max-w-4xl text-center space-y-8">
+      <section className="flex flex-col items-center relative justify-center bg-dark-background text-dark-foreground py-24 -mt-2 px-4">
+        <div className="max-w-4xl text-center space-y-8 mb-[50vh] sticky top-16">
           <h2 className="text-4xl md:text-6xl font-bold">How it works?</h2>
-          <p>WIP</p>
+          <p className="text-lg">
+            Build your own project that involves your camera and make your lives
+            feels <i>easier</i>.
+          </p>
         </div>
+        <StackedCards />
+        <Dithering
+          className="absolute pointer-events-none -bottom-1 w-full h-32"
+          colorBack="#00000000"
+          colorFront="#d0fbea"
+          shape="wave"
+          type="4x4"
+          size={11}
+          speed={1.2}
+          scale={1.5}
+        />
+      </section>
+      <section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1 className="text-center text-7xl">WIP</h1>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </section>
     </main>
   );

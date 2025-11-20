@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import {
   DM_Sans,
   DM_Mono,
-  Bricolage_Grotesque,
-  Public_Sans,
-  Archivo,
+  //  Bricolage_Grotesque,
+  //  Public_Sans,
+  //  Archivo,
 } from "next/font/google";
+// @ts-expect-error
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -19,20 +20,20 @@ const dmMono = DM_Mono({
   variable: "--font-dm-mono",
 });
 
-const bricolageGrotesque = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-bricolage-grotesque",
-});
-
-const publicSans = Public_Sans({
-  subsets: ["latin"],
-  variable: "--font-public-sans",
-});
-
-const archivo = Archivo({
-  subsets: ["latin"],
-  variable: "--font-archivo",
-});
+// const bricolageGrotesque = Bricolage_Grotesque({
+//   subsets: ["latin"],
+//   variable: "--font-bricolage-grotesque",
+// });
+//
+// const publicSans = Public_Sans({
+//   subsets: ["latin"],
+//   variable: "--font-public-sans",
+// });
+//
+// const archivo = Archivo({
+//   subsets: ["latin"],
+//   variable: "--font-archivo",
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -47,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} ${dmMono.variable} ${bricolageGrotesque.variable} ${publicSans.variable} ${archivo.variable} ${dmSans.className} antialiased`}
+        className={`${dmSans.variable} ${dmMono.variable} ${/*bricolageGrotesque.variable} ${publicSans.variable} ${archivo.variable*/ ""} ${dmSans.className} antialiased`}
       >
         {children}
       </body>
