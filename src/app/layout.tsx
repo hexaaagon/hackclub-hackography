@@ -6,7 +6,6 @@ import {
   //  Public_Sans,
   //  Archivo,
 } from "next/font/google";
-// @ts-expect-error
 import "./globals.css";
 
 const dmSans = DM_Sans({
