@@ -113,8 +113,8 @@ export default function Home() {
         <br />
         <br />
         <br />
-        <br />
         <h1 className="text-center text-7xl">WIP</h1>
+        <br />
         <br />
         <br />
         <br />
