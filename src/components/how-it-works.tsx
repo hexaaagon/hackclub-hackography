@@ -140,11 +140,11 @@ const StackCard: React.FC<CardProps> = ({
   return (
     <div
       ref={containerRef}
-      className="h-screen flex flex-col items-center justify-center sticky top-0"
+      className="sticky top-0 flex h-screen flex-col items-center justify-center"
     >
       <div
         ref={cardRef}
-        className="relative w-full max-w-[800px] origin-top px-4"
+        className="relative w-full max-w-[800px] origin-top px-2 md:px-4"
         style={{
           top: `calc(-5vh + ${index * 25}px)`,
         }}
@@ -163,7 +163,7 @@ const StackCard: React.FC<CardProps> = ({
           />
         ) : (
           <Card
-            className="min-h-[400px] flex flex-col relative justify-start pt-12 px-5 border-[3px]"
+            className="relative flex min-h-[400px] flex-col justify-start gap-2 border-[3px] px-2 pt-8 md:gap-6 md:px-5 md:pt-12"
             style={{
               borderColor: color,
             }}
@@ -172,14 +172,16 @@ const StackCard: React.FC<CardProps> = ({
               <ScrollVelocityRotate className="h-min w-min" baseVelocity={75}>
                 <Star
                   size={48}
-                  className="text-main stroke-6 stroke-foreground mb-1"
+                  className="mb-1 stroke-6 stroke-foreground text-main"
                 />
               </ScrollVelocityRotate>
-              <Badge className="font-mono mb-2.5">STEP {id}</Badge>
-              <CardTitle className="text-3xl md:text-4xl">{title}</CardTitle>
+              <Badge className="mb-1 font-mono sm:mb-2.5">STEP {id}</Badge>
+              <CardTitle className="text-2xl sm:text-3xl md:text-4xl">
+                {title}
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-lg md:text-xl">
+              <CardDescription className="text-sm sm:text-lg md:text-xl">
                 {description}
               </CardDescription>
             </CardContent>
@@ -189,7 +191,7 @@ const StackCard: React.FC<CardProps> = ({
                   <TooltipTrigger asChild>
                     <button
                       type="button"
-                      className="cursor-pointer absolute bottom-0 right-5"
+                      className="absolute right-5 bottom-0 cursor-pointer"
                       onClick={() => {
                         setMode("generate");
                         chat.sendMessage();
@@ -232,7 +234,7 @@ const HackographeusProjectIdeaCard: React.FC<
 
   return (
     <Card
-      className="min-h-[400px] flex flex-col relative justify-start pt-12 px-5 border-[3px]"
+      className="relative flex min-h-[400px] flex-col justify-start gap-2 border-[3px] px-2 pt-8 md:gap-6 md:px-5 md:pt-12"
       style={{
         borderColor: color,
       }}
@@ -241,14 +243,16 @@ const HackographeusProjectIdeaCard: React.FC<
         <ScrollVelocityRotate className="h-min w-min" baseVelocity={75}>
           <Star
             size={48}
-            className="text-main stroke-6 stroke-foreground mb-1"
+            className="mb-1 stroke-6 stroke-foreground text-main"
           />
         </ScrollVelocityRotate>
-        <Badge className="font-mono mb-2.5">STEP {id}</Badge>
-        <CardTitle className="text-3xl md:text-4xl">Pitch '{title}'</CardTitle>
+        <Badge className="mb-2.5 font-mono">STEP {id}</Badge>
+        <CardTitle className="text-2xl sm:text-3xl md:text-4xl">
+          Pitch <i>{title}</i>
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-lg md:text-xl">
+        <CardDescription className="text-xs sm:text-base md:text-lg">
           {description}
         </CardDescription>
       </CardContent>
@@ -258,7 +262,7 @@ const HackographeusProjectIdeaCard: React.FC<
             <button
               type="button"
               className={cn(
-                "absolute bottom-0 right-5 z-10",
+                "absolute right-5 bottom-0 z-10",
                 chat.status !== "ready"
                   ? "animate-pulse cursor-progress"
                   : "cursor-pointer",

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { StackedCards } from "@/components/how-it-works";
 import { Dithering } from "@paper-design/shaders-react";
+import { RequirementCards } from "@/components/requirement-card";
 
 export default function Home() {
   return (
@@ -29,12 +30,12 @@ export default function Home() {
             alt="Orpheus Flag"
             height={200}
             width={200}
-            className="absolute top-0 left-0 right-0 w-full mx-auto md:w-auto md:mx-0 max-h-[8rem] md:left-14 z-10 opacity-60 hover:opacity-100 transition-opacity"
+            className="absolute top-0 right-0 left-0 z-10 mx-auto max-h-[8rem] w-full opacity-60 transition-opacity hover:opacity-100 md:left-14 md:mx-0 md:w-auto"
           />
         </Link>
         <ParallaxLayer
           layer="1"
-          className="absolute inset-0 flex items-center pointer-events-none justify-center bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-size-[70px_70px] bg-position-[center_center]"
+          className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-position-[center_center] bg-size-[70px_70px]"
         >
           <Silk
             speed={10}
@@ -48,18 +49,18 @@ export default function Home() {
 
         <ParallaxLayer
           layer="2"
-          className="absolute -mt-[20vh] inset-0 font-medium flex flex-col gap-4 md:gap-8 items-center justify-center"
+          className="-mt-[20vh] absolute inset-0 flex flex-col items-center justify-center gap-4 font-medium md:gap-8"
         >
           <Image
             src="/static/images/logo.svg"
             alt="Mountains Background"
             height={170 * 0.7}
             width={496 * 0.7}
-            className="scale-75 md:scale-100 object-contain"
+            className="scale-75 object-contain md:scale-100"
           />
-          <div className="max-w-3xl text-xl mx-4 md:text-3xl text-center inline-block">
+          <div className="mx-4 inline-block max-w-3xl text-center text-xl md:text-3xl">
             Create anything that involves in your camera, gets a{" "}
-            <b className="py-1 bg-main/30 border backdrop-blur-[1.5px] border-main/50 px-2 rounded-lg">
+            <b className="inline-block rounded-lg border border-main/50 bg-main/30 px-2 py-1 backdrop-blur-[1.5px]">
               professional camera
             </b>{" "}
             for real.
@@ -76,7 +77,7 @@ export default function Home() {
 
         <ParallaxLayer
           layer="4"
-          className="absolute bottom-0 left-0 right-0 w-full"
+          className="absolute right-0 bottom-0 left-0 w-full"
         >
           <Image
             src="/static/images/field.png"
@@ -88,17 +89,17 @@ export default function Home() {
         </ParallaxLayer>
       </ParallaxScroll>
 
-      <section className="flex flex-col items-center relative justify-center bg-dark-background text-dark-foreground py-24 -mt-2 px-4">
-        <div className="max-w-4xl text-center space-y-8 mb-[50vh] sticky top-16">
-          <h2 className="text-4xl md:text-6xl font-bold">How it works?</h2>
-          <p className="text-lg">
+      <section className="-mt-2 relative flex flex-col items-center justify-center bg-dark-background px-4 py-24 text-dark-foreground">
+        <div className="sticky top-16 mb-[50vh] max-w-4xl space-y-8 text-center">
+          <h2 className="font-bold text-4xl md:text-6xl">How it works?</h2>
+          <p className="text-sm md:text-lg">
             Build your own project that involves your camera and make your lives
             feels <i>easier</i>.
           </p>
         </div>
         <StackedCards />
         <Dithering
-          className="absolute pointer-events-none -bottom-1 w-full h-32"
+          className="-bottom-1 pointer-events-none absolute h-32 w-full"
           colorBack="#00000000"
           colorFront="#d0fbea"
           shape="wave"
@@ -107,6 +108,9 @@ export default function Home() {
           speed={1.2}
           scale={1.5}
         />
+      </section>
+      <section>
+        <RequirementCards />
       </section>
       <section>
         <br />
