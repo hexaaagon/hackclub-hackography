@@ -50,9 +50,31 @@ export function RequirementCards({
   const [rect, setRect] = useState({ top: 0, height: 0 });
   const [current, setCurrent] = useState(0);
   const [backgroundHeight, setBackgroundHeight] = useState("200vh");
+  const [scrollHeight, setScrollHeight] = useState("100vh");
+  const [endScrollVh, setEndScrollVh] = useState(0);
 
   const parallaxRatio = 0.1;
 
+  // Calculate scroll height based on cards count and device
+  useEffect(() => {
+    const calculateScrollHeight = () => {
+      const isDesktop = window.innerWidth >= 768;
+      // Base scroll per card: desktop short, mobile longer for readability
+      const scrollPerCard = isDesktop ? 60 : 120;
+      // Add extra scroll at start and end
+      const baseScroll = isDesktop ? 80 : 200;
+      const endScroll = isDesktop ? 100 : 150;
+      setEndScrollVh(endScroll);
+      const totalScroll = baseScroll + cards.length * scrollPerCard + endScroll;
+      setScrollHeight(`${totalScroll}vh`);
+    };
+
+    calculateScrollHeight();
+    window.addEventListener("resize", calculateScrollHeight);
+    return () => window.removeEventListener("resize", calculateScrollHeight);
+  }, [cards.length]);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     const updateRect = () => {
       if (containerRef.current) {
@@ -73,13 +95,15 @@ export function RequirementCards({
     updateRect();
     window.addEventListener("resize", updateRect);
     return () => window.removeEventListener("resize", updateRect);
-  }, []);
+  }, [scrollHeight]); // Re-run when scrollHeight changes
 
   useScroll(
     ({ scroll }) => {
       const windowHeight = window.innerHeight;
       const start = rect.top - windowHeight * 2;
-      const end = rect.top + rect.height - windowHeight;
+      // Subtract endScroll from height so progress reaches 100% before the end padding
+      const endScrollPixels = (endScrollVh / 100) * windowHeight;
+      const end = rect.top + rect.height - windowHeight - endScrollPixels;
 
       const progress = clamp(0, mapRange(start, end, scroll, 0, 1), 1);
 
@@ -111,7 +135,8 @@ export function RequirementCards({
   return (
     <div
       ref={containerRef}
-      className={cn("relative min-h-[1100vh]", className)}
+      className={cn("relative", className)}
+      style={{ minHeight: scrollHeight }}
     >
       <div className="sticky top-0 h-screen overflow-hidden p-4 md:p-8">
         {/* Parallax Background */}
@@ -125,7 +150,7 @@ export function RequirementCards({
         </div>
         <div className="relative h-full">
           <aside className="mb-8 text-right md:absolute md:top-0 md:right-0">
-            <h2 className="font-bold text-4xl md:text-6xl">
+            <h2 className="font-bold text-xl sm:text-4xl xl:text-5xl 2xl:text-6xl">
               Follow the <i>requirement</i> first,
               <br />
               <span className="text-foreground/70">
@@ -187,7 +212,11 @@ function SingleCard({
       const cardWidth = window.innerWidth >= 768 ? 480 : 280; // 30rem = 480px
       const padding = window.innerWidth >= 768 ? 64 : 32; // Account for container padding
 
-      const availableHeight = window.innerHeight - cardHeight - padding * 2;
+      // On mobile, use a percentage-based approach to distribute cards more evenly
+      const availableHeight =
+        window.innerWidth >= 768
+          ? window.innerHeight - cardHeight - padding * 2
+          : window.innerHeight * 0.4;
       const availableWidth = window.innerWidth - cardWidth - padding * 2;
 
       // Calculate spacing between cards
@@ -227,10 +256,10 @@ function SingleCard({
     >
       <Card className="relative h-[200px] w-[280px] overflow-hidden bg-background/80 backdrop-blur-sm md:h-[20rem] md:w-[30rem]">
         <CardHeader className="h-full">
-          <CardTitle className="font-mono font-semibold text-7xl text-main/50">
+          <CardTitle className="font-mono font-semibold text-3xl text-main/50 md:text-7xl">
             0{index + 1}
           </CardTitle>
-          <CardDescription className="line-clamp-3 text-xl">
+          <CardDescription className="line-clamp-3 text-sm md:text-xl">
             {description}
           </CardDescription>
         </CardHeader>
