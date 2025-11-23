@@ -28,7 +28,7 @@ const defaultCards: RequirementCard[] = [
       "The project must involved with your webcam or your phone camera.",
   },
   {
-    description: "You must code at least 25 hours on your project.",
+    description: "You must code at least 30 hours on your project.",
   },
   {
     description: "Last thing, add a README to your project repository 😭",

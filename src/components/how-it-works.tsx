@@ -59,9 +59,9 @@ export const cardData = [
   {
     id: 4,
     star: Star20,
-    title: "Receive your Camera Kit",
+    title: "Receive your OBS Bot Webcam",
     description:
-      "Upon approval of your submission, you'll receive a camera kit to bring your project to life!",
+      "Upon approval of your submission, you'll receive a webcam to bring your project to life!",
     color: "rgba(168, 85, 247, 0.8)",
   },
 ];

@@ -75,9 +75,9 @@ export default function Home() {
             className="scale-75 object-contain md:scale-100"
           />
           <div className="mx-4 inline-block max-w-3xl text-center text-xl md:text-3xl">
-            Create anything that involves in your camera, gets a{" "}
+            Create anything that involves in your camera, gets an{" "}
             <b className="inline-block rounded-lg border border-main/50 bg-main/30 px-2 py-1 backdrop-blur-[1.5px]">
-              professional camera
+              OBS Bot Webcam
             </b>{" "}
             for real.
           </div>
