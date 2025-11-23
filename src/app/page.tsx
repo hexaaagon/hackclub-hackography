@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { StackedCards } from "@/components/how-it-works";
 import { Dithering } from "@paper-design/shaders-react";
 import { RequirementCards } from "@/components/requirement-card";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 export default function Home() {
   return (
@@ -88,6 +89,17 @@ export default function Home() {
           />
         </ParallaxLayer>
       </ParallaxScroll>
+
+      <div className="pointer-events-none sticky top-0 left-0 z-30 w-full">
+        <ScrollProgress
+          className="absolute top-0 h-1 rounded-r-4xl bg-linear-to-r from-transparent via-main/70 to-main"
+          springOptions={{
+            stiffness: 280,
+            damping: 18,
+            mass: 0.3,
+          }}
+        />
+      </div>
 
       <section className="-mt-2 relative flex flex-col items-center justify-center bg-dark-background px-4 py-24 text-dark-foreground">
         <div className="sticky top-16 mb-[50vh] max-w-4xl space-y-8 text-center">
