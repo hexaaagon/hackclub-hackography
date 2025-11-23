@@ -223,7 +223,7 @@ export default function Home() {
           speedMultiplier={25}
         />
         <div className="mx-4 flex w-full flex-col items-center justify-center space-y-24 md:flex-row md:space-x-24 md:space-y-0">
-          <h2 className="max-w-[20rem] text-center text-3xl md:max-w-xl md:text-start md:text-7xl">
+          <h2 className="max-w-[20rem] text-center text-3xl md:max-w-xl md:text-start md:text-5xl lg:text-7xl">
             Frequently Asked Question
           </h2>
           <Accordion
