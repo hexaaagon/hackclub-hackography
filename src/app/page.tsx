@@ -23,6 +23,8 @@ import Star14 from "@/components/stars/s14";
 import Star15 from "@/components/stars/s15";
 import Star20 from "@/components/stars/s20";
 import { ScrollVelocityRotate } from "@/components/scroll-velocity-rotate";
+import Footer from "@/components/footer";
+import { StarsBackground } from "@/components/ui/background-stars";
 
 export default function Home() {
   return (
@@ -139,7 +141,7 @@ export default function Home() {
       <section>
         <RequirementCards />
       </section>
-      <section className="relative flex min-h-screen items-center justify-center bg-dark-background py-24 text-dark-foreground">
+      <section className="relative flex min-h-[calc(100vh+8rem)] items-center justify-center bg-dark-background py-24 text-dark-foreground">
         <GrainGradient
           className="-top-1 pointer-events-none absolute h-32 w-full"
           colors={["#0e201d"]}
@@ -269,7 +271,44 @@ export default function Home() {
             </AccordionItem>
           </Accordion>
         </div>
+        <GrainGradient
+          className="-bottom-1 pointer-events-none absolute h-32 w-full"
+          colors={["#d0fbea"]}
+          colorBack="#0e201d"
+          softness={0}
+          intensity={0}
+          noise={0.02}
+          shape="wave"
+          speed={1.5}
+          scale={0.3}
+        />
       </section>
+      <section className="relative flex justify-center pt-12 pb-24">
+        <div className="absolute top-0 right-0 left-0 h-8 w-full bg-linear-to-b from-background to-transparent" />
+        <StarsBackground
+          className="-z-10 absolute inset-0 flex items-center justify-center bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-position-[center_center] bg-size-[70px_70px]"
+          starColor="#000000"
+        />
+        <div className="space-y-6 px-6 text-center">
+          <h2 className="font-inter font-semibold text-5xl md:text-6xl">
+            Your story <b className="font-bold italic underline">awaits</b>.
+          </h2>
+          <p className="mx-auto max-w-2xl text-xl">
+            Join{" "}
+            <Link
+              href="https://hackclub.slack.com/archives/C09NS7PD5DF"
+              className="underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              #hackography
+            </Link>{" "}
+            on Slack and start sharing your projects — RSVP now to help make
+            Hackography happen!
+          </p>
+        </div>
+      </section>
+      <Footer />
     </main>
   );
 }
