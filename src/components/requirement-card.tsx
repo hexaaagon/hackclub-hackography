@@ -246,7 +246,7 @@ function SingleCard({
   return (
     <div
       className={cn(
-        "-translate-x-1/2 absolute left-1/2 transition-all duration-1000 ease-out md:left-0 md:translate-x-0",
+        "-translate-x-1/2 absolute left-1/2 backdrop-blur-sm transition-all duration-1000 ease-out md:left-0 md:translate-x-0",
         current ? "translate-y-0 opacity-100" : "translate-y-full opacity-0",
       )}
       style={{
@@ -254,7 +254,7 @@ function SingleCard({
         left: isMounted && window.innerWidth >= 768 ? position.left : undefined,
       }}
     >
-      <Card className="relative h-[200px] w-[280px] overflow-hidden bg-background/80 backdrop-blur-sm md:h-[20rem] md:w-[30rem]">
+      <Card className="relative h-[200px] w-[280px] overflow-hidden bg-background/30 md:h-[20rem] md:w-[30rem]">
         <CardHeader className="h-full">
           <CardTitle className="font-mono font-semibold text-3xl text-main/50 md:text-7xl">
             0{index + 1}

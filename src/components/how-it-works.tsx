@@ -51,7 +51,7 @@ export const cardData = [
   {
     id: 3,
     star: Star15,
-    title: "Submit you well-crafted Project",
+    title: "Submit your well-crafted Project",
     description:
       "Once your project is ready, submit it through the submission form!",
     color: "rgba(59, 130, 246, 0.8)",
@@ -222,8 +222,6 @@ const StackCard: React.FC<CardProps> = ({
 const HackographeusProjectIdeaCard: React.FC<
   CardProps & { chat: ReturnType<typeof useChat> }
 > = ({ id, star: Star, color, chat }) => {
-  console.log("chat messages:", chat.messages);
-  console.log("chat status:", chat.status);
   const latestMessage =
     chat.messages
       .at(-1)
